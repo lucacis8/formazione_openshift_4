@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: formazione-app
+  labels:
+    app: formazione-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: formazione-app
+  template:
+    metadata:
+      labels:
+        app: formazione-app
+    spec:
+      containers:
+        - name: formazione-container
+          image: lucacisotto/formazione_openshift_4:latest
+          ports:
+            - containerPort: 8080
